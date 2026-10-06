@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f6f2">
+<title>Korel Oktar — AI-native product builder</title>
+<meta name="description" content="Korel Oktar — AI-native product builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;
+  --ink:#141414;
+  --muted:#66645f;
+  --line:#d8d5ce;
+  --panel:#eceae4;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.shell{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+.mono{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  line-height:1.4;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+header{border-bottom:1px solid var(--line)}
+.nav{
+  height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.brand{
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+}
+.navlinks{
+  display:flex;
+  gap:24px;
+  font-size:13px;
+}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{opacity:.55}
+
+.hero{
+  padding:92px 0 88px;
+  border-bottom:1px solid var(--line);
+}
+.hero h1{
+  margin:0 0 22px;
+  font-size:clamp(48px,6vw,82px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+.hero .tagline{
+  margin:0 0 28px;
+  font-size:clamp(22px,2.4vw,30px);
+  line-height:1.25;
+  letter-spacing:-.01em;
+  font-weight:500;
+}
+.hero .positioning{
+  margin:0 0 22px;
+  max-width:760px;
+  font-size:clamp(28px,3vw,40px);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+.hero .lede{
+  margin:0;
+  max-width:720px;
+  font-size:18px;
+  line-height:1.6;
+  color:#3f3e3a;
+}
+.hero .lede + .lede{
+  margin-top:18px;
+}
+
+.section{
+  padding:88px 0;
+  border-bottom:1px solid var(--line);
+}
+.section-head{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-bottom:32px;
+}
+.section-head > .mono{color:var(--muted)}
+.section-head h2{
+  margin:0;
+  font-size:clamp(30px,3.2vw,44px);
+  line-height:1.05;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+.section-head p{
+  margin:3px 0 0;
+  max-width:680px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:48px;
+  padding:27px 0 30px;
+  border-bottom:1px solid var(--line);
+}
+.row h3{
+  margin:0;
+  font-size:21px;
+  line-height:1.25;
+  letter-spacing:-.01em;
+  font-weight:600;
+}
+.row p{
+  margin:0;
+  max-width:690px;
+  color:#45433f;
+  font-size:15px;
+  line-height:1.65;
+}
+.work{
+  display:grid;
+  gap:64px;
+}
+.work-item{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:56px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.work-copy h3{
+  margin:8px 0 12px;
+  font-size:30px;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+.work-copy p{
+  margin:0 0 24px;
+  color:#45433f;
+  font-size:15px;
+  line-height:1.65;
+}
+.fact-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  border-top:1px solid var(--line);
+}
+.fact-list li{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:24px;
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+  line-height:1.5;
+}
+.fact-list strong{font-weight:500}
+.fact-list span{color:var(--muted)}
+.trading-platform > .fact-list{align-self:start}
+.foundation{
+  margin-top:54px;
+  border-top:1px solid var(--line);
+}
+.foundation-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:36px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+.foundation-row span:first-child{color:var(--muted)}
+.contact{
+  padding:88px 0 96px;
+  background:var(--panel);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:70px;
+  align-items:center;
+}
+.contact h2{
+  margin:0 0 18px;
+  font-size:clamp(26px,3vw,34px);
+  line-height:1.1;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+.contact-note{
+  margin:0;
+  max-width:720px;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--muted);
+  font-weight:400;
+}
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.contact-links a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:17px 20px;
+  border:1px solid var(--ink);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  transition:background .15s,color .15s;
+}
+.contact-links .contact-primary{background:var(--ink);color:var(--bg)}
+.contact-links .contact-primary:hover{background:#353430}
+.contact-links .contact-secondary:hover{background:var(--bg)}
+.contact-links a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+footer{
+  border-top:1px solid var(--line);
+  padding:22px 0 28px;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:820px){
+  .work-item,.contact-grid{grid-template-columns:1fr}
+  .section-head{grid-template-columns:1fr;gap:12px}
+  .row{grid-template-columns:1fr;gap:12px}
+  .work-item{gap:28px}
+  .contact-grid{gap:28px}
+}
+@media(max-width:560px){
+  .shell{width:min(calc(100% - 28px),var(--max))}
+  .navlinks{gap:14px}
+  .hero{padding:68px 0 60px}
+  .section{padding:64px 0}
+  .fact-list li,.foundation-row{grid-template-columns:1fr;gap:5px}
+  .contact{padding:64px 0 72px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="shell nav">
+    <a href="#top" class="brand">KOREL OKTAR</a>
+    <nav class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="shell hero">
+    <div>
+      <div class="mono">Brooklyn · New York</div>
+      <h1>Korel Oktar</h1>
+      <h2 class="tagline">AI-native product builder.</h2>
+      <p class="lede">I turn business objectives into working software—building new products from zero to one, reshaping existing products around evolving business priorities, or creating custom AI-enabled systems tailored to how the organization operates.</p>
+      <p class="lede">I work end-to-end, from core architecture to the user experience, with AI agents embedded at the center of execution.</p>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div class="mono">Capabilities</div>
+        <div>
+          <h2>What I build.</h2>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <h3>New products, 0→1</h3>
+          <p>Turn a business need, problem, or opportunity into a working product—from objectives and goals, to architecture, implementation, launch, and iteration.</p>
+        </div>
+        <div class="row">
+          <h3>Move an existing product forward</h3>
+          <p>Step into an existing product or initiative, understand how it works and where it needs to go, then take ownership of the changes required to get it there—from product direction and workflows through architecture, implementation, and iteration.</p>
+        </div>
+        <div class="row">
+          <h3>AI-enabled systems and operating layers</h3>
+          <p>Custom systems for products, services, and business processes, tailored to the organization with AI agents at the core.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="shell">
+      <div class="work">
+        <article class="work-item trading-platform">
+          <div class="work-copy">
+            <div class="mono">FINANCIAL MARKETS</div>
+            <h3>Proprietary Trading Platform</h3>
+            <p>Purpose-built equities and options trading platform covering historical research, trading preparation, real-time market analysis, execution, and post-trade review.</p>
+            <p>I designed the product, architecture, data models, business rules, and UX. AI agents handled substantial implementation work under my direction and code review, with the system continuously refined through live use.</p>
+          </div>
+          <ul class="fact-list" aria-label="Trading platform capabilities">
+            <li><strong>Research &amp; review</strong><span>Historical market study, setup tagging, trading plans, daily review, and trade-performance analysis.</span></li>
+            <li><strong>Market data &amp; visualization</strong><span>Level 1 and Level 2 data, tick-level processing, one-second and trade-based views, with live and historical footprint charts.</span></li>
+            <li><strong>Options execution</strong><span>Purpose-built workflows for rapid contract selection, contract switching, and live intraday execution through Interactive Brokers.</span></li>
+            <li><strong>Data architecture</strong><span>Historical market and options-contract data with persistent research notes, trading context, and application state.</span></li>
+          </ul>
+        </article>
+        <article class="work-item">
+          <div class="work-copy">
+            <div class="mono">VTS · COMMERCIAL REAL ESTATE</div>
+            <h3>Leasing and Asset Management</h3>
+            <p>At VTS, I built a large scale leasing and asset-management platform for commercial real estate from the ground up.</p>
+            <div class="mono">Chief Product Officer</div>
+          </div>
+          <ul class="fact-list" aria-label="VTS product scope">
+            <li><strong>Build &amp; scale</strong><span>Developed and scaled the core application establishing product and engineering teams.</span></li>
+            <li><strong>Product expansion</strong><span>Led product strategy, roadmap, and go-to-market across all product lines.</span></li>
+            <li><strong>Merger integration</strong><span>Integrated product teams and roadmaps following the merger.</span></li>
+          </ul>
+        </article>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="shell contact-grid">
+      <div>
+        <h2>Let’s talk product.</h2>
+        <p class="contact-note">Working through a product problem or direction where this kind of ownership could be useful? Get in touch.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-primary" href="mailto:korelsurfer@gmail.com"><span>Email me</span><span aria-hidden="true">↗</span></a>
+        <a class="contact-secondary" href="https://www.linkedin.com/in/korel-oktar-bb116077" target="_blank" rel="noopener noreferrer"><span>Connect on LinkedIn</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">Korel Oktar · Brooklyn, New York</div>
+</footer>
+</body>
+</html>
